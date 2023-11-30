@@ -5,13 +5,15 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+
+
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
 
-driver.get("https://yahoo.com")
+driver.get("https://www.google.com")
 
-search_bar = driver.find_element(By.CLASS_NAME, "_yb_1pduh")
-#search_bar.clear() sometimes you may need to clear text thats in the element you are trying to target
+search_bar = driver.find_element(By.NAME, "q")
+# search_bar.clear() sometimes you may need to clear text thats in the element you are trying to target
 search_bar.send_keys("twitch" + Keys.ENTER)
 
 
@@ -21,8 +23,8 @@ search_bar.send_keys("twitch" + Keys.ENTER)
 # link.click()
 
 
-# time.sleep(20)
+time.sleep(20)
 
-# driver.quit()
+driver.quit()
 
 
